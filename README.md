@@ -1,11 +1,5 @@
-# Jest playground
-<img src="https://jestjs.io/img/jest.png" alt="logo" height="50px"/>
+# Lil' Monster game and loot generator
 
-* Jest unit tests
-* Vue
-* Vuex
-* Vuetify
-* Vue Router
 
 
 

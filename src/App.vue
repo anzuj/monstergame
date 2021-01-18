@@ -6,7 +6,7 @@
         <h1 class="text-center hover-pointer">
           {{ pageTitle }} <v-icon large>{{ pageIcon }}</v-icon>
         </h1>
-        <v-card class="mx-auto mt-2 pa-3 fade-in" max-width="600">
+        <v-card class="mx-auto my-2 pa-3 fade-in" max-width="600">
           <router-view></router-view>
         </v-card>
         <p class="text-center text-caption" v-if="$route.name ==='fight'">
@@ -17,6 +17,15 @@
           ..or work for the loot in my
           <a href="/fight">lil' monstergame</a>
         </p>
+
+        <v-footer app dark>
+          <v-row justify="center">
+   <div class="footerText">
+ Coded and drawn by Anzelika Häberli 2021
+           </div>
+          </v-row>
+       
+        </v-footer>
       </v-main>
     </v-app>
   </div>

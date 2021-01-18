@@ -1,8 +1,6 @@
 <template>
   <v-container>
     <!-- PLAYERS -->
-    <!--     playerwon: {{ playerWon }} <br />
-    monsterwon: {{ monsterWon }} -->
     <v-row justify="center">
       <v-col
         v-for="player in players"
@@ -45,8 +43,7 @@
     <!-- /PLAYERS -->
 
     <!-- SKILLS -->
-
-    <div v-if="gameIsRunning">
+    <section v-if="gameIsRunning">
       <v-row justify="center" class="small-pop">
         <v-btn
           v-for="skill in skills"
@@ -60,24 +57,6 @@
         >
           <v-icon>{{ skill.icon }}</v-icon>
         </v-btn>
-
-        <!-- 
-            <v-btn @click="attack" fab x-large depressed color="light-blue accent-1">
-<v-icon>mdi-sword</v-icon>
-            </v-btn>
-
-                <v-btn @click="heal" fab x-large depressed color="light-green lighten-3">
-<v-icon>mdi-leaf</v-icon>
-            </v-btn>
- 
-
-        <button
-          title="Special Attack"
-          id="special-attack"
-          @click="specialAttack"
-        >
-          <span class="mdi mdi-creation"></span>
-        </button> -->
       </v-row>
 
       <v-row class="mt-4" justify="center">
@@ -85,11 +64,11 @@
           <v-icon small left>mdi-flag-variant-outline</v-icon>Give up
         </v-btn>
       </v-row>
-    </div>
-
+    </section>
     <!-- /SKILLS -->
 
-    <div v-else>
+    <!-- GAME ENDED -->
+    <section v-else>
       <div v-if="playerWon">
         <h1>You win! <v-icon color="yellow">mdi-trophy</v-icon></h1>
         <p>Here's the loot you've earned:</p>
@@ -110,28 +89,27 @@
 
         <h2>START NEW GAME</h2>
       </v-card>
-    </div>
+    </section>
+    <!-- /GAME ENDED -->
 
     <!-- COMBAT LOG -->
-    <div v-if="turns.length > 0 && gameIsRunning" class="slide-in">
+    <section v-if="turns.length > 0 && gameIsRunning" class="slide-in">
       <strong>Combat log:</strong>
 
       <v-card outlined class="pa-3">
         <v-card
           v-for="(turn, i) in turns"
           flat
-          class="pa-1 mb-1 pop"
+          class="pa-1 mb-1"
           :class="turn.color"
           :key="i"
         >
-          <!-- <div :class="{ 'small-pop': i === 0 || i === 1 }"> </div> -->
-            <v-icon left :color="turn.iconColor">{{ turn.icon }}</v-icon>
-            {{ turn.text }} <span>{{ turn.isHeal ? "+" : "-" }}</span>
-            {{ turn.amount }}
-         
+          <v-icon left :color="turn.iconColor">{{ turn.icon }}</v-icon>
+          {{ turn.text }} <span>{{ turn.isHeal ? "+" : "-" }}</span
+          >{{ turn.amount }}
         </v-card>
       </v-card>
-    </div>
+    </section>
     <!-- /COMBAT LOG -->
   </v-container>
 </template>
@@ -167,21 +145,18 @@ export default {
         name: "Attack",
         action: "attack",
         icon: "mdi-sword",
-        cooldown: 2000,
         color: "light-blue accent-1",
       },
       {
         name: "Special Attack",
         action: "specialAttack",
         icon: "mdi-creation",
-        cooldown: 5000,
         color: "purple lighten-3",
       },
       {
         name: "Heal",
         action: "heal",
         icon: "mdi-leaf",
-        cooldown: 2000,
         color: "light-green accent-1",
       },
     ],
