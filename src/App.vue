@@ -3,10 +3,10 @@
     <v-app>
       <v-main fluid fill-height>
         <!-- <v-btn>Loot gen</v-btn> -->
-        <h1 class="text-center hover-pointer">
+        <h1 class="text-center">
           {{ pageTitle }} <v-icon large>{{ pageIcon }}</v-icon>
         </h1>
-        <v-card class="mx-auto my-2 pa-3 fade-in" max-width="600">
+        <v-card class="mx-auto my-2 pa-3 fade-in rounded-xl" max-width="600" outlined style="border: 2px solid #25292e">
           <router-view></router-view>
         </v-card>
         <p class="text-center text-caption" v-if="$route.name ==='fight'">

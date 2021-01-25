@@ -89,7 +89,7 @@
 
     <!-- COMBAT LOG -->
     <section v-if="turns.length > 0 && gameIsRunning" class="slide-in">
-      <strong>Combat log:</strong>
+      <div id="combat">Combat log:</div>
 
       <v-card outlined class="pa-3">
         <v-card
