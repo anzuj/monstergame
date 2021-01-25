@@ -11,11 +11,11 @@
         </v-card>
         <p class="text-center text-caption" v-if="$route.name ==='fight'">
           ..or just have some fun with my
-          <a href="/random-loot">loot generator</a>
+          <a href="./random-loot">loot generator</a>
         </p>
           <p class="text-center text-caption" v-if="$route.name ==='loot'">
           ..or work for the loot in my
-          <a href="/fight">lil' monstergame</a>
+          <a href="./fight">lil' monstergame</a>
         </p>
 
         <v-footer app dark>
