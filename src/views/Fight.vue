@@ -291,18 +291,8 @@ export default {
       } else {
         return "red";
       }
-
-      /*     return {
-        "green": health > 75,
-        "yellow": health > 50 && health < 76,
-        "orange": health > 25 && health < 51,
-        "red": health < 26,
-       
-      }; */
-      //    "no-health": health <= 0,
     },
     avatar(player) {
-      console.log(player);
       if (player === "YOU") {
         return this.monsterWon ? "me-defeated" : "me";
       } else if (player === "MONSTER") {
