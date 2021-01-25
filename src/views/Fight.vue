@@ -13,16 +13,11 @@
         }"
       >
         <v-img
-          :class="{
-            defeated:
-              (player.name === 'MONSTER' && playerWon) ||
-              (player.name === 'YOU' && monsterWon),
-          }"
           contain
           height="100"
           max-width="120"
           class="mx-auto transitioned"
-          :src="player.img"
+          :src="require(`@/assets/avatars/${avatar(player.name)}.png`)"
         />
         <h1>{{ player.name }}</h1>
 
@@ -129,14 +124,10 @@ export default {
     players: [
       {
         name: "YOU",
-        img:
-          "https://i.pinimg.com/originals/82/92/26/829226e573cc920a917cbef08ca8de5b.png",
         health: "playerHealth",
       },
       {
         name: "MONSTER",
-        img:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGeT3r42hEm6k6i9eIiKyNZwjZULQ6dh4SPFr14dVhPnpvqRCX",
         health: "monsterHealth",
       },
     ],
@@ -310,17 +301,20 @@ export default {
       }; */
       //    "no-health": health <= 0,
     },
+    avatar(player) {
+      console.log(player);
+      if (player === "YOU") {
+        return this.monsterWon ? "me-defeated" : "me";
+      } else if (player === "MONSTER") {
+        return this.playerWon ? "monster-defeated" : "monster";
+      }
+    },
   },
   computed: {},
 };
 </script>
 
 <style>
-.defeated {
-  animation: pop 0.3s linear;
-  transform: rotate(90deg);
-}
-
 .grayed-out {
   opacity: 0.5;
 }
