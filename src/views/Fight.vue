@@ -40,9 +40,9 @@
     <!-- SKILLS -->
     <section v-if="gameIsRunning">
       <v-row justify="center" class="small-pop">
-        <v-btn
-          v-for="skill in skills"
-          :key="skill.name"
+        <div   v-for="skill in skills"
+          :key="skill.name">    
+        <v-btn       
           fab
           x-large
           depressed
@@ -52,6 +52,8 @@
         >
           <v-icon>{{ skill.icon }}</v-icon>
         </v-btn>
+        <div class="text-center" style="font-family: 'Potta One'">{{skill.name}}</div>
+         </div>
       </v-row>
 
       <v-row class="mt-4" justify="center">
@@ -139,7 +141,7 @@ export default {
         color: "light-blue accent-1",
       },
       {
-        name: "Special Attack",
+        name: "Special",
         action: "specialAttack",
         icon: "mdi-creation",
         color: "purple lighten-3",
