@@ -18,6 +18,11 @@ Vue.use(VueRouter)
     path: '/random-loot',
     name: 'loot',
     component: () => import('../views/RandomLoot.vue')
+  },
+  {
+    path: '/break',
+    name: 'break',
+    component: () => import('../views/BreakMaterial.vue')
   }
 ]
 
